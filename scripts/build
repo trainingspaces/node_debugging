@@ -1,0 +1,8 @@
+#!/bin/sh
+
+VERSION="1.0.0"
+
+[[ -n "$1" ]] && VERSION="$1"
+
+
+docker build --no-cache --rm -t "debug_image:$VERSION" .
