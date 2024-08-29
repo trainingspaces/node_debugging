@@ -13,7 +13,21 @@ Endpoints
 - POST /posts : write a post to jsonplaceholder.
 - GET  /posts : get a list of posts from jsonplaceholder
 
-Notice tha jsonplaceholders never write posts on their side so posting a custom post is not retrieved via get.
+Notice that jsonplaceholders never write posts on their side so "*new posts*" are not retrieved via get.
+
+Call examples
+
+```shell
+curl --location 'http://localhost:3000/posts'
+```
+```shell
+curl --location 'http://localhost:3000/posts' \
+--header 'Content-Type: application/json' \
+--data '{
+    "title": "post title",
+    "body": "some content"
+}'
+```
 
 **Math API**
 
@@ -21,11 +35,22 @@ Simple calculator to perform mathematical operations
 
 Endpoints
 
-- POST /math/sum : add 2 numbers
+- POST /math/add : add 2 numbers
 - POST /math/sub : substract 2 numbers
 - POST /math/mul : multiplies 2 numbers
 - POST /math/div : divide 2 numbers
 
+Call samples
+
+```shell
+curl --location 'http://localhost:3000/math/sub' \
+--header 'Content-Type: application/json' \
+--data '{
+    "a": 5,
+    "b": 7
+}'
+```
+All endpoints share the same data format. So, to call them just replace the operation `sub` with any of `mul`, `add` or `div`
 
 # Debugging the application.
 
